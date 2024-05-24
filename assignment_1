@@ -1,0 +1,19 @@
+from itertools import combinations
+
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2,n):
+        if n % i == 0:
+            return False
+    return True
+    
+def solution(nums):
+    count = 0
+    for comb in combinations(nums, 3):
+        if is_prime(sum(comb)):
+            count += 1
+    return count 
+
+print(solution([1, 2, 3, 4]))
+print(solution([1, 2, 7, 6, 4]))
